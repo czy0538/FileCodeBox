@@ -80,15 +80,13 @@
 
 ## 部署方式
 
-### Docker一键部署
+### Docker部署
 
 ```bash
-docker run -d --restart=always -p 12345:12345 -v /opt/FileCodeBox/:/app/data --name filecodebox lanol/filecodebox:latest
+docker build --file Dockerfile --tag filecodebox .
+
+docker run -d --restart=always -p 12345:12345 -v /opt/FileCodeBox/:/app/data --name filecodebox filecodebox
 ```
-
-### 其他方式
-
-仅供参考，历史版本->[部署文档](https://www.yuque.com/lxyo/work/zd0kvzy7fofx6w7v)
 
 ## 配置文件
 
