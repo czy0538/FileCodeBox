@@ -111,7 +111,7 @@ async def index(code: str, ip: str = Depends(error_ip_limit), s: AsyncSession = 
     await s.execute(update(Codes).where(Codes.id == info.id).values(count=info.count - 1))
     await s.commit()
     if info.type != 'text':
-        info.text = f'/select?code={code}'
+        info.text = f'/filebox/select?code={code}'
     return {
         'detail': f'取件成功，文件将在{settings.DELETE_EXPIRE_FILES_INTERVAL}分钟后删除',
         'data': {'type': info.type, 'text': info.text, 'name': info.name, 'code': info.code}
