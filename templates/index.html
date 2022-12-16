@@ -97,7 +97,7 @@
                 <el-upload
                         v-if="uploadData.type === '1'"
                         drag
-                        action="/share"
+                        action="/filebox/share"
                         multiple
                         style="margin: 1rem 0;"
                         :data="uploadData"
@@ -296,7 +296,7 @@
                         type: 'error'
                     });
                 } else {
-                    this.http('post', '/share', this.uploadData, {
+                    this.http('post', '/filebox/share', this.uploadData, {
                         headers: {
                             'Content-Type': 'multipart/form-data',
                             'pwd': this.pwd
